@@ -33,9 +33,25 @@ const actions = {
     }
     dispatch('setCartItemsToLocalStorage');
   },
+  clearCartItem({ commit, dispatch }) {
+    commit('SET_CART_ITEM_DATA', []);
+    dispatch('setCartItemsToLocalStorage');
+  },
   setCartItemsToLocalStorage({ dispatch }) {
     const payload = { name: 'cartItems', data: JSON.stringify(state.cartItems) };
     dispatch('setToLocalStorage', payload);
+  },
+  getCartItemFromLocalStorage({ commit, dispatch }) {
+    dispatch('getLocalStorage', { name: 'cartItems' }).then(data => {
+      commit('SET_CART_ITEM_DATA', data);
+    });
+  },
+  removeCartItem({ commit, state, dispatch }, itemId) {
+    const index = state.cartItems.findIndex(item => item.id === itemId);
+    if (index !== -1) {
+      commit('REMOVE_CART_ITEM', index);
+      dispatch('setCartItemsToLocalStorage');
+    }
   },
 };
 
@@ -51,6 +67,12 @@ const mutations = {
   },
   INCREMENT_CART_ITEM_QUANTITY(state, itemIndex) {
     state.cartItems[itemIndex].quantity++;
+  },
+  SET_CART_ITEM_DATA(state, data) {
+    state.cartItems = [...data];
+  },
+  REMOVE_CART_ITEM(state, index) {
+    state.cartItems.splice(index, 1);
   },
 };
 

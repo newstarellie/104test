@@ -1,10 +1,6 @@
 // 引入 Vuex 和 Vue
 import { createStore } from 'vuex';
-
 import classListModule from './modules/classListModule'
-
-
-
 
 // 定义状态对象
 const state = {
@@ -19,6 +15,11 @@ const actions = {
   setToLocalStorage({ commit }, payload) {
     console.log(commit);
     localStorage.setItem(payload.name, payload.data);
+  },
+  getLocalStorage({ commit }, payload) {
+    console.log(commit);
+    let localStorageData = JSON.parse(localStorage.getItem(payload.name)) || [];
+    return localStorageData;
   },
 };
 
