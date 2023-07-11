@@ -7,7 +7,7 @@
         class="border p-4 flex flex-col">
         <img :src="course.picture"
           alt="Course Thumbnail"
-          class="w-64 h-64 object-cover mb-2">
+          class="w-80 h-80 object-cover mx-auto">
         <h2 class="text-lg font-bold mb-2">{{ course.title }}</h2>
 
         <div class="flex justify-between items-center mt-auto">
