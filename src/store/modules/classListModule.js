@@ -42,6 +42,13 @@ const actions = {
       commit('SET_CART_ITEM_DATA', data);
     });
   },
+  removeCartItem({ commit, state, dispatch }, itemId) {
+    const index = state.cartItems.findIndex(item => item.id === itemId);
+    if (index !== -1) {
+      commit('REMOVE_CART_ITEM', index);
+      dispatch('setCartItemsToLocalStorage');
+    }
+  },
 };
 
 
@@ -59,6 +66,9 @@ const mutations = {
   },
   SET_CART_ITEM_DATA(state, data) {
     state.cartItems = [...data];
+  },
+  REMOVE_CART_ITEM(state, index) {
+    state.cartItems.splice(index, 1);
   },
 };
 

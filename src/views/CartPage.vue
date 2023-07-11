@@ -52,10 +52,10 @@ export default {
   },
 
   methods: {
-    // removeItem(itemId) {
-    //   // 根據 itemId 刪除購物車中的商品項目
-    //   // 可以觸發 Vuex 中的相應 action 或進行其他處理
-    // },
+    removeItem(itemId) {
+      this.$store.dispatch('removeCartItem', itemId);
+    },
+
     calculateTotalPrice() {
       let totalPrice = 0;
 
