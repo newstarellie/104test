@@ -43,6 +43,26 @@
       </div>
     </div>
   </div>
+  <div v-show="showModal"
+    class="fixed inset-0 flex items-center justify-center">
+    <div class="modal-overlay bg-black opacity-50"></div>
+    <div class="modal-container bg-white w-64 p-4 rounded shadow">
+      <!-- 模态框的内容 -->
+      <h2 class="text-lg font-bold mb-4">确认购物车</h2>
+      <p class="text-gray-700 mb-4">是否确定提交订单？</p>
+      <!-- 其他内容 -->
+      <div class="flex justify-end">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
+          @click="submitOrder">
+          确认提交
+        </button>
+        <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+          @click="closeModal">
+          取消
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -50,6 +70,8 @@ export default {
   data() {
     return {
       selectedItems: [], // 存储选中的商品项的 ID
+      showModal: false, // 控制模态框的显示与隐藏
+
     };
   },
   created() {
@@ -75,20 +97,29 @@ export default {
 
       return totalPrice;
     },
-
-    checkout() {
-      // 確認購物車，例如提交訂單等操作
-    },
     removeSelectedItems() {
       for (const itemId of this.selectedItems) {
         this.$store.dispatch('removeCartItem', itemId);
       }
       this.selectedItems = []; // 清空选中的商品项
     },
+    checkout() {
+      this.showModal = true; // 打开模态框
+      // 在这里可以进行其他购物车确认操作，例如提交订单等
+    },
+    submitOrder() {
+      // 处理提交订单的逻辑
+      // 在这里可以调用 Vuex action 或其他操作
+
+      // 关闭模态框
+      this.showModal = false;
+    },
+
+    closeModal() {
+      this.showModal = false; // 关闭模态框
+    },
   },
 };
 </script>
 
-<style>
-/* 根据需求添加自定义样式 */
-</style>
+<style></style>
