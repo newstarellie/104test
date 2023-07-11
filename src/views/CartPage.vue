@@ -11,7 +11,7 @@
         :key="item.id"
         class="flex items-center border p-4 mb-4">
         <input type="checkbox"
-          v-model="selectedItems"
+          v-model="item.selected"
           :value="item.id"
           class="mr-2">
         <img :src="item.picture"
@@ -30,9 +30,15 @@
 
       <div class="flex justify-between items-center border-t pt-4 mt-4">
         <div>
+          <button @click="selectAllItems"
+            class="text-500">
+            全选
+          </button>
+        </div>
+        <div>
           <button @click="removeSelectedItems"
             class="text-red-500">
-            多選刪除
+            刪除
           </button>
         </div>
         <p class="text-lg">總計金額: {{ calculateTotalPrice() }} 元</p>
@@ -98,10 +104,17 @@ export default {
       return totalPrice;
     },
     removeSelectedItems() {
-      for (const itemId of this.selectedItems) {
-        this.$store.dispatch('removeCartItem', itemId);
+      const selectedItems = this.cartItems.filter(item => item.selected);
+
+      for (const item of selectedItems) {
+        this.$store.dispatch('removeCartItem', item.id);
       }
-      this.selectedItems = []; // 清空选中的商品项
+    },
+    selectAllItems() {
+      // 设置购物车中所有商品的选中状态为 true
+      for (const item of this.cartItems) {
+        item.selected = true;
+      }
     },
     checkout() {
       this.showModal = true; // 打开模态框
@@ -111,7 +124,6 @@ export default {
       this.showModal = false;
       this.$store.dispatch('clearCartItem');
     },
-
     closeModal() {
       this.showModal = false; // 关闭模态框
     },
