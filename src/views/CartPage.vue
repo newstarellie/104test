@@ -28,24 +28,25 @@
         </button>
       </div>
 
-      <div class="flex flex-wrap justify-between items-center border-t pt-4 mt-4">
-        <div>
-          <button @click="selectAllItems"
-            class="text-500">
-            全选
-          </button>
+      <div
+        class="fixed bottom-0 left-0 right-0 bg-white sm:relative sm:flex sm:flex-wrap justify-between items-center border-t py-4 px-6 sm:py-2 sm:px-4">
+        <div class="flex items-center flex-grow">
+          <div>
+            <button @click="selectAllItems"
+              class="text-gray-500 hover:text-gray-700">全选</button>
+          </div>
+          <div class="ml-4">
+            <button @click="removeSelectedItems"
+              class="text-red-500 hover:text-red-700">刪除</button>
+          </div>
         </div>
-        <div>
-          <button @click="removeSelectedItems"
-            class="text-red-500">
-            刪除
-          </button>
+        <div class="flex sm:justify-between">
+
+          <p class="text-lg mt-1 mr-1">總計金額: {{ calculateTotalPrice() }} 元</p>
+          <div class="mx-auto"></div>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            @click="checkout">確認結帳</button>
         </div>
-        <p class="text-lg">總計金額: {{ calculateTotalPrice() }} 元</p>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          @click="checkout">
-          確認
-        </button>
       </div>
     </div>
   </div>
