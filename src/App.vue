@@ -1,8 +1,8 @@
 <template>
   <div id="app"
     class="flex flex-col min-h-screen">
-    <header class="bg-gray-800 py-4">
-      <Navbar class="navbar"></Navbar>
+    <header class="bg-gray-800">
+      <Navbar></Navbar>
     </header>
     <main class="flex-1">
       <router-view></router-view>
@@ -49,13 +49,5 @@ main {
 
 footer {
   flex-shrink: 0;
-}
-
-.navbar {
-  // background-color: red;
-
-  ul {
-    // padding: 50px;
-  }
 }
 </style>
