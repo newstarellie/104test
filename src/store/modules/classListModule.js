@@ -23,12 +23,13 @@ const actions = {
       // throw error;
     }
   },
-  addToCart({ commit, state, dispatch }, product) {
-    const itemIndex = state.cartItems.findIndex((item) => item.productId === product.productId);
+  addToCart({ commit, state, dispatch }, courseInform) {
+    const itemIndex = state.cartItems.findIndex((item) => item.id === courseInform.id);
     if (itemIndex !== -1) {
+      console.log(itemIndex)
       commit('INCREMENT_CART_ITEM_QUANTITY', itemIndex);
     } else {
-      commit('ADD_CART_ITEM', product);
+      commit('ADD_CART_ITEM', courseInform);
     }
     dispatch('setCartItemsToLocalStorage');
   },
