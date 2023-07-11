@@ -9,9 +9,9 @@
         alt="Course Thumbnail"
         class="w-64 h-64 object-cover mt-4 mb-2">
       <p class="font-bold">單價: {{ course.price }}</p>
-
       <button v-if="course.status !== '尚未開始'"
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+        @click="addToCart(course)">
         加入購物車
       </button>
       <button v-else
@@ -27,24 +27,26 @@
 export default {
   data() {
     return {
-      courses: [
-        {
-          id: 2,
-          title: "自由花藝體驗坊：希臘神話 X 花藝課程",
-          status: "尚未開始",
-          picture: "https://images.unsplash.com/photo-1457089328109-e5d9bd499191?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=663&q=80",
-          price: "1500"
-        },
-        {
-          "id": 1,
-          "title": "【手作烘焙坊 -【季節限定】玫瑰花檸檬塔",
-          "status ": "報名當中",
-          "picture": "https://images.unsplash.com/photo-1600856450294-92b3a7062a3c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-          "price ": "1200"
-        },
-        // 可添加更多課程資料
-      ]
+      courses: [],
     };
-  }
+  },
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      try {
+        const data = await this.$store.dispatch('fetchApiData');
+        this.courses = data;
+      } catch (error) {
+        console.error('Error fetching API data:', error);
+      }
+    },
+    addToCart(courseInform) {
+      // this.$toast.success("加入成功");
+      console.log(this.courseInform)
+      return this.$store.dispatch('addToCart', courseInform);
+    },
+  },
 };
 </script>
