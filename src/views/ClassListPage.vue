@@ -5,23 +5,25 @@
       <div v-for="course in courses"
         :key="course.id"
         class="border p-4 flex flex-col">
-        <h2 class="text-lg font-bold mb-2">{{ course.title }}</h2>
         <img :src="course.picture"
           alt="Course Thumbnail"
           class="w-64 h-64 object-cover mb-2">
-        <p class="font-bold mb-2">單價: {{ course.price }}</p>
-        <div class="flex-grow"></div> <!-- 添加一个占位的空 div，使按钮位置固定在底部 -->
-        <div class="mt-auto">
-          <button v-if="course.status !== '尚未開始'"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
-            @click="addToCart(course)">
-            加入購物車
-          </button>
-          <button v-else
-            class="bg-gray-300 text-gray-500 font-bold py-2 px-4 rounded mt-2"
-            disabled>
-            尚未開始
-          </button>
+        <h2 class="text-lg font-bold mb-2">{{ course.title }}</h2>
+
+        <div class="flex justify-between items-center mt-auto">
+          <p class="font-bold">單價: {{ course.price }}</p>
+          <div class="mt-auto">
+            <button v-if="course.status !== '尚未開始'"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2"
+              @click="addToCart(course)">
+              加入購物車
+            </button>
+            <button v-else
+              class="bg-gray-300 text-gray-500 font-bold py-2 px-4 rounded mt-2"
+              disabled>
+              尚未開始
+            </button>
+          </div>
         </div>
       </div>
     </div>
