@@ -2,6 +2,7 @@
 import { createStore } from 'vuex';
 
 import classListModule from './modules/classListModule'
+import cartModule from './modules/cartModule'
 
 
 
@@ -20,6 +21,11 @@ const actions = {
     console.log(commit);
     localStorage.setItem(payload.name, payload.data);
   },
+  getLocalStorage({ commit }, payload) {
+    console.log(commit);
+    let localStorageData = JSON.parse(localStorage.getItem(payload.name)) || [];
+    return localStorageData;
+  },
 };
 
 
@@ -36,5 +42,6 @@ export default createStore({
   mutations,
   modules: {
     classListModule: classListModule,
+    cartModule: cartModule,
   },
 });
