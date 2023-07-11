@@ -16,19 +16,19 @@
           class="mr-2">
         <img :src="item.picture"
           :alt="item.title"
-          class="w-16 h-16 object-cover mr-4">
+          class="w-16 h-16 object-cover mr-4 mb-2 sm:mb-0 sm:mr-8">
         <div>
           <h2 class="text-lg font-bold">{{ item.title }}</h2>
           <p class="text-gray-500">單價: {{ item.price }}</p>
           <p class="text-gray-500">數量: {{ item.quantity }}</p>
         </div>
         <button @click="removeItem(item.id)"
-          class="ml-auto text-red-500">
+          class="ml-auto text-red-500 hidden sm:block">
           刪除
         </button>
       </div>
 
-      <div class="flex justify-between items-center border-t pt-4 mt-4">
+      <div class="flex flex-wrap justify-between items-center border-t pt-4 mt-4">
         <div>
           <button @click="selectAllItems"
             class="text-500">
@@ -49,6 +49,7 @@
       </div>
     </div>
   </div>
+
   <div v-show="showModal"
     class="fixed inset-0 flex items-center justify-center">
     <div class="modal-overlay bg-black opacity-50"></div>
