@@ -1,19 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import Contact from '../views/Contact.vue'
+import ClassListPage from '../views/ClassListPage.vue';
+import CartPage from '../views/CartPage.vue';
 
 
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'ClassListPage',
+    component: ClassListPage,
   },
   {
-    path: '/contact',
-    name: 'Contact',
-    component: Contact,
+    path: '/cartPage',
+    name: 'CartPage',
+    component: CartPage,
   },
 ];
 

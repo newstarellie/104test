@@ -1,14 +1,12 @@
 <template>
-  <div class="home">
-    <h1>Contact</h1>
-  </div>
+  <h1>CartPage</h1>
 </template>
 
 <script>
 
 
 export default {
-  name: 'ContactPage',
+  name: 'CartPage',
   components: {
   },
   created() {

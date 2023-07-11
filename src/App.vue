@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <Navbar class="navbar"></Navbar>
+    <header>
+      <Navbar class="navbar"></Navbar>
+    </header>
     <main>
       <router-view></router-view>
     </main>
-
     <footer>
       <p>&copy; 2023 My E-commerce Website. All rights reserved.</p>
     </footer>
