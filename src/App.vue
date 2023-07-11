@@ -4,7 +4,7 @@
     <header class="bg-gray-800">
       <Navbar></Navbar>
     </header>
-    <main class="flex-1">
+    <main class="flex-1 mt-10">
       <router-view></router-view>
     </main>
     <footer class="bg-gray-800 py-4">

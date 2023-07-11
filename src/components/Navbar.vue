@@ -1,6 +1,6 @@
 <template>
-  <nav class="bg-gray-800">
-    <div class="flex items-center justify-between py-4 px-4 ">
+  <nav class="bg-gray-800 fixed top-0 w-full z-50">
+    <div class="flex items-center justify-between px-4 ">
       <div>
         <h1 class="text-white text-lg font-bold">網站名稱</h1>
       </div>
