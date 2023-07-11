@@ -1,13 +1,14 @@
 <template>
-  <div id="app">
-    <header>
+  <div id="app"
+    class="flex flex-col min-h-screen">
+    <header class="bg-gray-800 py-4">
       <Navbar class="navbar"></Navbar>
     </header>
-    <main>
+    <main class="flex-1">
       <router-view></router-view>
     </main>
-    <footer>
-      <p>&copy; 2023 My E-commerce Website. All rights reserved.</p>
+    <footer class="bg-gray-800 py-4">
+      <p class="text-center text-gray-300">&copy; 2023 My E-commerce Website. All rights reserved.</p>
     </footer>
   </div>
 </template>
