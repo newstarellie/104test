@@ -42,6 +42,9 @@ export default {
 
     };
   },
+  created() {
+    this.$store.dispatch('getCartItemFromLocalStorage')
+  },
   computed: {
     cartItems() {
       return this.$store.state.classListModule.cartItems;

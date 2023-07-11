@@ -37,6 +37,11 @@ const actions = {
     const payload = { name: 'cartItems', data: JSON.stringify(state.cartItems) };
     dispatch('setToLocalStorage', payload);
   },
+  getCartItemFromLocalStorage({ commit, dispatch }) {
+    dispatch('getLocalStorage', { name: 'cartItems' }).then(data => {
+      commit('SET_CART_ITEM_DATA', data);
+    });
+  },
 };
 
 
@@ -51,6 +56,9 @@ const mutations = {
   },
   INCREMENT_CART_ITEM_QUANTITY(state, itemIndex) {
     state.cartItems[itemIndex].quantity++;
+  },
+  SET_CART_ITEM_DATA(state, data) {
+    state.cartItems = [...data];
   },
 };
 

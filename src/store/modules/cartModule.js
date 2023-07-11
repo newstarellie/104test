@@ -1,6 +1,7 @@
 
 // 定义状态对象
 const state = {
+
 };
 
 // 定义 getters 对象
