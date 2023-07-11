@@ -16,39 +16,41 @@
           class="mr-2">
         <img :src="item.picture"
           :alt="item.title"
-          class="w-16 h-16 object-cover mr-4">
+          class="w-16 h-16 object-cover mr-4 mb-2 sm:mb-0 sm:mr-8">
         <div>
           <h2 class="text-lg font-bold">{{ item.title }}</h2>
           <p class="text-gray-500">單價: {{ item.price }}</p>
           <p class="text-gray-500">數量: {{ item.quantity }}</p>
         </div>
         <button @click="removeItem(item.id)"
-          class="ml-auto text-red-500">
+          class="ml-auto text-red-500 hidden sm:block">
           刪除
         </button>
       </div>
 
-      <div class="flex justify-between items-center border-t pt-4 mt-4">
-        <div>
-          <button @click="selectAllItems"
-            class="text-500">
-            全选
-          </button>
+      <div
+        class="fixed bottom-0 left-0 right-0 bg-white sm:relative sm:flex sm:flex-wrap justify-between items-center border-t py-4 px-6 sm:py-2 sm:px-4">
+        <div class="flex items-center flex-grow">
+          <div>
+            <button @click="selectAllItems"
+              class="text-gray-500 hover:text-gray-700">全选</button>
+          </div>
+          <div class="ml-4">
+            <button @click="removeSelectedItems"
+              class="text-red-500 hover:text-red-700">刪除</button>
+          </div>
         </div>
-        <div>
-          <button @click="removeSelectedItems"
-            class="text-red-500">
-            刪除
-          </button>
+        <div class="flex sm:justify-between">
+
+          <p class="text-lg mt-1 mr-1">總計金額: {{ calculateTotalPrice() }} 元</p>
+          <div class="mx-auto"></div>
+          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            @click="checkout">確認結帳</button>
         </div>
-        <p class="text-lg">總計金額: {{ calculateTotalPrice() }} 元</p>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          @click="checkout">
-          確認
-        </button>
       </div>
     </div>
   </div>
+
   <div v-show="showModal"
     class="fixed inset-0 flex items-center justify-center">
     <div class="modal-overlay bg-black opacity-50"></div>
