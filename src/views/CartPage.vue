@@ -108,11 +108,8 @@ export default {
       // 在这里可以进行其他购物车确认操作，例如提交订单等
     },
     submitOrder() {
-      // 处理提交订单的逻辑
-      // 在这里可以调用 Vuex action 或其他操作
-
-      // 关闭模态框
       this.showModal = false;
+      this.$store.dispatch('clearCartItem');
     },
 
     closeModal() {

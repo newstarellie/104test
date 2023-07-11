@@ -33,6 +33,10 @@ const actions = {
     }
     dispatch('setCartItemsToLocalStorage');
   },
+  clearCartItem({ commit, dispatch }) {
+    commit('SET_CART_ITEM_DATA', []);
+    dispatch('setCartItemsToLocalStorage');
+  },
   setCartItemsToLocalStorage({ dispatch }) {
     const payload = { name: 'cartItems', data: JSON.stringify(state.cartItems) };
     dispatch('setToLocalStorage', payload);
