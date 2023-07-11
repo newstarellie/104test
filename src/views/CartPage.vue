@@ -1,8 +1,7 @@
 <template>
   <div class="container mx-auto p-4">
     <h1 class="text-2xl font-bold mb-4">購物車</h1>
-    {{ cartItems }}
-    <!-- <div v-if="cartItems.length === 0"
+    <div v-if="cartItems.length === 0"
       class="text-center">
       <p>購物車中沒有商品</p>
     </div>
@@ -11,12 +10,13 @@
       <div v-for="item in cartItems"
         :key="item.id"
         class="flex items-center border p-4 mb-4">
-        <img :src="item.thumbnail"
+        <img :src="item.picture"
           :alt="item.title"
           class="w-16 h-16 object-cover mr-4">
         <div>
           <h2 class="text-lg font-bold">{{ item.title }}</h2>
           <p class="text-gray-500">單價: {{ item.price }}</p>
+          <p class="text-gray-500">數量: {{ item.quantity }}</p>
         </div>
         <button @click="removeItem(item.id)"
           class="ml-auto text-red-500">
@@ -31,7 +31,7 @@
           確認
         </button>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
 
