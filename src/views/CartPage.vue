@@ -25,7 +25,7 @@
       </div>
 
       <div class="flex justify-between items-center border-t pt-4 mt-4">
-        <p class="text-lg">總計金額: {{ calculateTotalPrice() }}</p>
+        <p class="text-lg">總計金額: {{ calculateTotalPrice() }} 元</p>
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           @click="checkout">
           確認
@@ -57,10 +57,15 @@ export default {
     //   // 可以觸發 Vuex 中的相應 action 或進行其他處理
     // },
     calculateTotalPrice() {
-      // 計算購物車中商品的總計金額
-      // 可以遍歷 cartItems，計算每個商品的價格並累加
-      // 返回總計金額值
+      let totalPrice = 0;
+
+      for (const item of this.cartItems) {
+        totalPrice += item.price * item.quantity;
+      }
+
+      return totalPrice;
     },
+
     checkout() {
       // 確認購物車，例如提交訂單等操作
     },
