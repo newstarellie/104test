@@ -11,6 +11,7 @@
         :item="item"
         @remove="removeItem(item.id)" />
       <CartFooter :totalPrice="calculateTotalPrice()"
+        @selectAllItems="selectAllItems"
         @removeSelected="removeSelectedItems"
         @checkout="checkout" />
     </div>
@@ -47,6 +48,9 @@ export default {
     return {
       showModal: false
     };
+  },
+  created() {
+    this.$store.dispatch('getCartItemFromLocalStorage');
   },
   computed: {
     cartItems() {

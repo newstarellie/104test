@@ -4,7 +4,7 @@
     <div class="flex items-center flex-grow">
       <div>
         <button @click="selectAllItems"
-          class="text-gray-500 hover:text-gray-700">全选</button>
+          class="text-gray-500 hover:text-gray-700">全選</button>
       </div>
       <div class="ml-4">
         <button @click="removeSelectedItems"
@@ -30,7 +30,7 @@ export default {
       this.$emit('removeSelected');
     },
     selectAllItems() {
-      this.$emit('selectAll');
+      this.$emit('selectAllItems');
     },
     checkout() {
       this.$emit('checkout');
