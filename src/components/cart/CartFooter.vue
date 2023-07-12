@@ -7,7 +7,7 @@
           class="text-gray-500 hover:text-gray-700">全選</button>
       </div> -->
       <div>
-        <button @click="removeSelectedItems"
+        <button @click="removeAllItems"
           class="text-red-500 hover:text-red-700">全部刪除</button>
       </div>
     </div>
@@ -26,8 +26,8 @@
 export default {
   props: ['totalPrice'],
   methods: {
-    removeSelectedItems() {
-      this.$emit('removeSelected');
+    removeAllItems() {
+      this.$emit('removeAllItems');
     },
     selectAllItems() {
       this.$emit('selectAllItems');
