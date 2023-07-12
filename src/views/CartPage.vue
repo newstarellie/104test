@@ -17,12 +17,12 @@
     </div>
     <Modal :show="showModal"
       @close="closeModal">
-      <h2 class="text-lg font-bold mb-4">确认购物车</h2>
-      <p class="text-gray-700 mb-4">是否确定提交订单？</p>
+      <h2 class="text-lg font-bold mb-4">確認購物車</h2>
+      <p class="text-gray-700 mb-4">是否確定提交訂單？ </p>
       <div class="flex justify-end">
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2"
           @click="submitOrder">
-          确认提交
+          確認提交
         </button>
         <button class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
           @click="closeModal">
