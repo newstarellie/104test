@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import ClassListPage from '../views/ClassListPage.vue';
+import CourseListPage from '../views/CourseListPage.vue';
 import CartPage from '../views/CartPage.vue';
 
 
@@ -7,8 +7,8 @@ import CartPage from '../views/CartPage.vue';
 const routes = [
   {
     path: '/',
-    name: 'ClassListPage',
-    component: ClassListPage,
+    name: 'CourseListPage',
+    component: CourseListPage,
   },
   {
     path: '/cartPage',

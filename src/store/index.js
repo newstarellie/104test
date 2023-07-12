@@ -1,6 +1,6 @@
 // 引入 Vuex 和 Vue
 import { createStore } from 'vuex';
-import classListModule from './modules/classListModule'
+import courseListModule from './modules/courseListModule'
 
 // 定义状态对象
 const state = {
@@ -36,6 +36,6 @@ export default createStore({
   actions,
   mutations,
   modules: {
-    classListModule: classListModule,
+    courseListModule: courseListModule,
   },
 });
