@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     cartItems() {
-      return this.$store.state.classListModule.cartItems;
+      return this.$store.state.courseListModule.cartItems;
     },
   },
   methods: {
