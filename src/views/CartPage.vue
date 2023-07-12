@@ -12,7 +12,7 @@
         @remove="removeItem(item.id)" />
       <CartFooter :totalPrice="calculateTotalPrice()"
         @selectAllItems="selectAllItems"
-        @removeSelected="removeSelectedItems"
+        @removeAllItems="removeAllItems"
         @checkout="checkout" />
     </div>
     <Modal :show="showModal"
@@ -73,6 +73,10 @@ export default {
       for (const item of selectedItems) {
         this.$store.dispatch('removeCartItem', item.id);
       }
+    },
+    removeAllItems() {
+      console.log('ji')
+      this.$store.dispatch('clearCartItem');
     },
     selectAllItems() {
       for (const item of this.cartItems) {

@@ -28,7 +28,6 @@ export default {
   computed: {
   },
   created() {
-    this.$store.dispatch('setFireBase');
   },
 
 }
