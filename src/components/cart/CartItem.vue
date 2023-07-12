@@ -1,9 +1,9 @@
 <template>
   <div :class="['flex items-center border p-4 mb-4', { 'hidden sm:block': !isMobile }]">
-    <input type="checkbox"
+    <!-- <input type="checkbox"
       v-model="itemCopy.selected"
       :value="itemCopy.id"
-      class="mr-2">
+      class="mr-2"> -->
     <img :src="itemCopy.picture"
       :alt="itemCopy.title"
       class="w-16 h-16 object-cover mr-4 mb-2 sm:mb-0 sm:mr-8">
@@ -29,13 +29,20 @@ export default {
   },
   computed: {
     isMobile() {
-      // 根據您的需求，這裡可以添加檢測設備是移動設備還是桌面設備的邏輯
-      // 例如使用window.innerWidth來判斷屏幕寬度
       return true; // 假設都是移動設備
     },
   },
-  created() {
-    this.itemCopy = { ...this.item }; // 創建一個淺拷貝的副本
+  // created() {
+  //   this.itemCopy = { ...this.item }; // 創建一個淺拷貝的副本
+  // },
+  watch: {
+    item: {
+      deep: true,
+      immediate: true,
+      handler(newValue) {
+        this.itemCopy = { ...newValue }; // 淺拷貝新值到 itemCopy
+      },
+    },
   },
 };
 </script>
